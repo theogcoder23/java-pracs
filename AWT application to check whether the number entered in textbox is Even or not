@@ -1,0 +1,63 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class EvenOddAWT extends Frame implements ActionListener {
+    
+    // Declare GUI components
+    Label label1, label2;
+    TextField textField;
+    Button button;
+
+    public EvenOddAWT() {
+        // Set layout
+        setLayout(new FlowLayout());
+
+        // Initialize components
+        label1 = new Label("Enter a number:");
+        textField = new TextField(10);
+        button = new Button("Check Even/Odd");
+        label2 = new Label("Result: ");
+
+        // Add action listener to the button
+        button.addActionListener(this);
+
+        // Add components to frame
+        add(label1);
+        add(textField);
+add(button);
+        add(label2);
+
+        // Frame properties
+        setSize(300, 150);
+        setTitle("Even or Odd Checker");
+        setVisible(true);
+
+        // Close window on click
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        try {
+            // Get number from text field
+            int num = Integer.parseInt(textField.getText());
+
+            // Check if the number is even or odd
+            if (num % 2 == 0) {
+                label2.setText("Result: Even");
+            } else {
+                label2.setText("Result: Odd");
+            }
+        } catch (NumberFormatException ex) {
+            label2.setText("Invalid input! Enter a valid number.");
+}
+    }
+
+    // Main method to start the application
+    public static void main(String[] args) {
+        new EvenOddAWT();
+    }
+}
