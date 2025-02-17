@@ -1,0 +1,24 @@
+interface S
+{
+    public void show();
+}
+interface T extends S
+{
+    public void display();
+}
+class Ironman implements T
+{
+    public void show()
+    {
+        System.out.println("From Interface S");
+    }
+    public void display() {
+        System.out.println("From Interface T");
+    }
+    public static void main(String args[])
+    {
+        Ironman r1=new Ironman();
+        r1.show();
+        r1.display();
+    }
+}
