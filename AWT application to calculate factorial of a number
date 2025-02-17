@@ -1,0 +1,62 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class FactorialAWT extends Frame implements ActionListener {
+    Label label1, label2;
+    TextField textField;
+    Button button;
+
+    public FactorialAWT() {
+        // Set layout
+        setLayout(new FlowLayout());
+
+        // Initialize components
+        label1 = new Label("Enter a number:");
+        textField = new TextField(10);
+        button = new Button("Calculate Factorial");
+        label2 = new Label("Result: ");
+
+        // Add action listener to the button
+        button.addActionListener(this);
+
+        // Add components to frame
+        add(label1);
+        add(textField);
+        add(button);
+        add(label2);
+        // Frame properties
+        setSize(300, 200);
+        setTitle("Factorial Calculator");
+        setVisible(true);
+
+        // Close window on click
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        try {
+            int num = Integer.parseInt(textField.getText());
+            long fact = factorial(num);
+            label2.setText("Result: " + fact);
+        } catch (NumberFormatException ex) {
+            label2.setText("Invalid input! Enter a number.");
+        }
+    }
+
+    // Method to calculate factorial
+    public long factorial(int n) {
+        long fact = 1;
+        for (int i = 1; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    public static void main(String[] args) {
+        new FactorialAWT();
+    }
+}
