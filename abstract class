@@ -1,0 +1,27 @@
+abstract class Calc
+{
+    public abstract int sqr(int n1);
+    public abstract int cube(int n1);
+    public void show()
+    {
+        System.out.println("Swara the best");
+    }
+}
+class abs extends Calc
+{
+    public int sqr(int n1)
+    {
+        return n1*n1;
+    }
+    public int cube(int n1)
+    {
+        return n1*n1*n1;
+    }
+    public static void main(String args[])
+    {
+        abs st = new abs();
+        System.out.println(st.sqr(3));
+        System.out.println(st.cube(4));
+        st.show();
+    }
+}
