@@ -1,0 +1,25 @@
+public class Pract11{
+
+public Pract11(){
+
+System.out.println("Hello");
+
+}
+
+public void finalize(){
+
+System.out.println("Destroyed");
+
+}
+
+public static void main(String[] args) {
+
+Pract11 s1=new Pract11();
+
+s1=null;
+
+System.gc();
+
+}
+
+}
