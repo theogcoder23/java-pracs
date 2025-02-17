@@ -1,0 +1,22 @@
+class G
+{
+void show()
+{
+    System.out.println("Base class");
+}
+}
+class R extends G
+{
+    void show()
+    {
+        System.out.println("Derived Class");
+    }
+}
+class Homelander
+{
+    public static void main(String args[])
+    {
+        R s=new R();
+        s.show();
+    }
+}
