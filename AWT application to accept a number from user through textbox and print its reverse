@@ -1,0 +1,65 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class ReverseNumberAWT extends Frame implements ActionListener {
+    Label label1, label2;
+    TextField textField;
+    Button button;
+
+    public ReverseNumberAWT() {
+        // Set layout
+        setLayout(new FlowLayout());
+
+        // Initialize components
+        label1 = new Label("Enter a number:");
+        textField = new TextField(10);
+        button = new Button("Reverse Number");
+        label2 = new Label("Result: ");
+
+        // Add action listener to the button
+        button.addActionListener(this);
+
+        // Add components to frame
+        add(label1);
+        add(textField);
+        add(button);
+        add(label2);
+
+        // Frame properties
+        setSize(300, 200);
+        setTitle("Reverse Number");
+        setVisible(true);
+
+        // Close window on click
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                dispose();
+            }
+        });
+    }
+
+    public void actionPerformed(ActionEvent e) {
+try {
+            int num = Integer.parseInt(textField.getText());
+            int reversedNum = reverseNumber(num);
+            label2.setText("Result: " + reversedNum);
+        } catch (NumberFormatException ex) {
+            label2.setText("Invalid input! Enter a number.");
+        }
+    }
+
+    // Method to reverse a number
+    public int reverseNumber(int n) {
+        int reverse = 0;
+        while (n != 0) {
+            int digit = n % 10;  // Get last digit
+            reverse = reverse * 10 + digit; // Append digit to reverse
+            n /= 10;  // Remove last digit
+        }
+        return reverse;
+    }
+
+    public static void main(String[] args) {
+        new ReverseNumberAWT();
+    }
+}
