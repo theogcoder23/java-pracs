@@ -1,0 +1,21 @@
+class Demo
+{
+    float pi=3.14f;
+    void show()
+    {
+        System.out.println("Area of Circle");
+    }
+}
+class Bc extends Demo {
+    float r = 2.0f;
+
+    void area() {
+        System.out.println(pi * r * r);
+    }
+
+    public static void main(String args[]) {
+        Bc p = new Bc();
+        p.show();
+        p.area();
+    }
+}
