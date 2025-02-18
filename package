@@ -1,0 +1,24 @@
+package mathematics;
+public class Mathmethods{
+    public static float sqr(float n){
+        return(n*n);
+    }
+    public static int sqr(int n){
+        return(n*n);
+    }
+        public static double sqr(double n){
+            return(n*n);
+        }       
+}
+
+import java.io.*;
+import mathematics.Mathmethods;
+class sqr{
+    public static void main(String S[]){
+        int a;
+        a=2;
+        Mathmethods sc=new Mathmethods();
+        int b=Mathmethods.sqr(a);
+        System.out.println("Square is" +sqr);
+    }
+}
